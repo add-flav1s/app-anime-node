@@ -5,7 +5,7 @@ const {
     engine
 } = require('express-handlebars');
 const app = express();
-
+const path = require('path');
 const admin = require('./router/admin');
 
 
@@ -22,7 +22,8 @@ app.engine('handlebars', engine({
 }));
 app.set('view engine', 'handlebars');
 
-// ----mongoose configure ---- //
+// ----public configure ---- //
+app.use(express.static(path.join(__dirname, 'public'))); //pasta que está guardando todos os arquivos estaticos.
 
 // Rotas
 app.use('/admin', admin);
@@ -32,5 +33,5 @@ app.use('/admin', admin);
 
 const port = 8082;
 app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+    console.log(`listening on port localhost:${port}`);
 });

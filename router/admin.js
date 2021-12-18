@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
-    res.send('Admin')
+    res.render('admin/home')
 })
 
 router.get('/animes', (req, res) => {
