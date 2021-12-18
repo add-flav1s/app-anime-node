@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     res.send('Admin')
 })
 
-router.get('/post', (req, res) => {
-    res.send('Post')
+router.get('/animes', (req, res) => {
+    res.send('Animes')
 })
 
 router.get('/categorias', (req, res) => {

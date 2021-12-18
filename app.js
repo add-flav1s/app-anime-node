@@ -1,24 +1,31 @@
 //Carregando os modulos do app
 
 const express = require('express');
-const handlebars = require('express-handlebars');
+const {
+    engine
+} = require('express-handlebars');
 const app = express();
+
+const admin = require('./router/admin');
 
 
 //Configurando os modulos
-// ----body-parser configure ---- //
-app.use(bodyParser.urlenconded({
-    extendend: true
-}));
-app.use(bodyParser.json());
+// ----express configure ---- //
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}))
 
 // ----handlebars configure ---- //
-app.engine('handlebars', handlebars({
-    defaultLayout: 'main'
+app.engine('handlebars', engine({
+    defaultLayout: "main"
 }));
 app.set('view engine', 'handlebars');
 
 // ----mongoose configure ---- //
+
+// Rotas
+app.use('/admin', admin);
 
 
 
