@@ -5,11 +5,11 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
-    res.send('Admin')
+    res.render('admin/home')
 })
 
-router.get('/post', (req, res) => {
-    res.send('Post')
+router.get('/animes', (req, res) => {
+    res.send('Animes')
 })
 
 router.get('/categorias', (req, res) => {
